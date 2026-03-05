@@ -28,15 +28,15 @@
 </head>
 <body>
 
-  <h1>Välkommen till Idö! </h1>
+  <h1>Välkommen till Idö!</h1>
   <p>Tryck på det område du vill veta mer om.</p>
 
   <img src="karta.png" usemap="#minKarta" alt="Min karta">
 
   <map name="minKarta">
-   <area target="" alt="Gästhamn" title="Gästhamn" href="https://idoskargardskrog.se/index.php/gasthamn/" coords="324,537,225,463" shape="rect">
-    <area target="" alt="Trollstig" title="Trollstig" href="https://idoskargardskrog.se/index.php/2024/09/07/orn-och-salsafari-2/" coords="597,587,686,586,687,656,596,656" shape="poly">
-    <area target="" alt="Restaurang" title="Restaurang" href="https://idoskargardskrog.se/index.php/2022/10/30/ido-skargardskrog/" coords="249,279,249,363,356,362,356,279" shape="poly">område på kartan.')">
+    <area shape="rect" coords="324,537,225,463" alt="Gästhamn" title="Gästhamn" href="#" onclick="visaInfo('Gästhamn','Här kan du läsa mer om Gästhamnen.')">
+    <area shape="poly" coords="597,587,686,586,687,656,596,656" alt="Trollstig" title="Trollstig" href="#" onclick="visaInfo('Trollstig','Här kan du läsa mer om Trollstigen.')">
+    <area shape="poly" coords="249,279,249,363,356,362,356,279" alt="Restaurang" title="Restaurang" href="#" onclick="visaInfo('Restaurang','Här kan du läsa mer om restaurangen på Idö.')">
   </map>
 
   <div id="infoRuta">
@@ -51,5 +51,4 @@
   </script>
 
 </body>
-
 </html>
