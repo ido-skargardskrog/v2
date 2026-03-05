@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min interaktiva karta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    #infoRuta {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Välkommen till min karta!</h1>
+  <p>Klicka på olika delar av kartan för att se information.</p>
+
+  <img src="karta.png" usemap="#minKarta" alt="Min karta">
+
+  <map name="minKarta">
+    <area shape="rect" coords="50,50,150,150" href="#" alt="Plats 1" onclick="visaInfo('Plats 1', 'Det här är information om Plats 1.')">
+    <area shape="circle" coords="300,200,40" href="#" alt="Plats 2" onclick="visaInfo('Plats 2', 'Här kan du läsa mer om Plats 2.')">
+    <area shape="poly" coords="200,100,250,120,240,180,190,160" href="#" alt="Plats 3" onclick="visaInfo('Plats 3', 'Plats 3 är ett spännande område på kartan.')">
+  </map>
+
+  <div id="infoRuta">
+    Klicka på ett område på kartan för att se information här.
+  </div>
+
+  <script>
+    function visaInfo(namn, text) {
+      const ruta = document.getElementById('infoRuta');
+      ruta.innerHTML = `<h2>${namn}</h2><p>${text}</p>`;
+    }
+  </script>
+
+</body>
+</html>
