@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Min interaktiva karta</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    #infoRuta {
-      margin-top: 20px;
-      padding: 15px;
-      border: 2px solid #333;
-      border-radius: 8px;
-      background-color: #f0f0f0;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min interaktiva karta - Idö</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+  #infoRuta {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  rect, polygon {
+    fill: transparent;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Välkommen till Idö!</h1>
-  <p>Tryck på det område du vill veta mer om.</p>
+<h1>Välkommen till Idö!</h1>
+<p>Klicka på ett område på kartan för att se information eller gå vidare till sidan.</p>
 
-  <img src="karta.png" usemap="#minKarta" alt="Min karta">
+<svg viewBox="0 0 1000 800">
+  <!-- Bakgrundsbild -->
+  <image href="karta.png" width="1000" height="800"/>
 
-  <map name="minKarta">
-    <area shape="rect" coords="324,537,225,463" alt="Gästhamn" title="Gästhamn" href="https://idoskargardskrog.se/index.php/gasthamn/" target="_blank">
-    <area shape="poly" coords="597,587,686,586,687,656,596,656" alt="Trollstig" title="Trollstig" href="#" onclick="visaInfo('Trollstig','På idö finns en trollstig som passar perfekt för såväl liten som stor. Den sträcker sig runt den lilla ön bakom glassboden som man tar sig till via en träbro. Längsvägen möts man av fina klippor, havsbrisar och små trollfigurer som vaktar stigen.')">
-    <area shape="poly" coords="249,279,249,363,356,362,356,279" alt="Restaurang" title="Restaurang" href="https://idoskargardskrog.se/index.php/2022/10/30/ido-skargardskrog/" target="_blank">
-  </map>
+  <!-- Gästhamn - öppnar länk i ny flik -->
+  <a href="https://idoskargardskrog.se/index.php/gasthamn/" target="_blank">
+    <rect x="225" y="463" width="99" height="74"/>
+  </a>
 
-  <div id="infoRuta">
-    Klicka på ett område på kartan för att se information här.
-  </div>
+  <!-- Trollstig - visar text i infoRuta -->
+  <polygon points="596,587 686,586 687,656 596,656"
+           style="fill:transparent; cursor:pointer;"
+           onclick="visaInfo('Trollstig','På Idö finns en trollstig som passar perfekt för såväl liten som stor. Den sträcker sig runt den lilla ön bakom glassboden som man tar sig till via en träbro. Längsvägen möts man av fina klippor, havsbrisar och små trollfigurer som vaktar stigen.')">
+  </polygon>
 
-  <script>
-    function visaInfo(namn, text) {
-      const ruta = document.getElementById('infoRuta');
-      ruta.innerHTML = `<h2>${namn}</h2><p>${text}</p>`;
-    }
-  </script>
+  <!-- Restaurang - öppnar länk i ny flik -->
+  <a href="https://idoskargardskrog.se/index.php/2022/10/30/ido-skargardskrog/" target="_blank">
+    <polygon points="249,279 249,363 356,362 356,279"/>
+  </a>
+</svg>
+
+<div id="infoRuta">
+  Klicka på ett område på kartan för att se information här.
+</div>
+
+<script>
+function visaInfo(namn, text) {
+  const ruta = document.getElementById('infoRuta');
+  ruta.innerHTML = `<h2>${namn}</h2><p>${text}</p>`;
+}
+</script>
 
 </body>
 </html>
-
-
